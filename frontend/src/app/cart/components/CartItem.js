@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { connect } from "react-redux";
-import { countQuantity } from "../action/cartActions";
 import AddToCartButton from "./AddToCartButton";
 
 const CartItem = ({
@@ -11,6 +10,9 @@ const CartItem = ({
     user: { cart },
   },
 }) => {
+  const countQuantity = (arr, val) =>
+    arr.reduce((count, food) => (food.id === val ? count + 1 : count), 0);
+
   return (
     <tbody>
       <tr>

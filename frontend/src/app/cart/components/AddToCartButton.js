@@ -1,16 +1,20 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { connect } from "react-redux";
-import { addCart, countQuantity, deleteCartItem } from "../action/cartActions";
+import { addCart, deleteCartItem } from "../action/cartActions";
 
 const AddToCartButton = ({
   foodId,
   addCart,
   deleteCartItem,
-  auth: {
-    user: { cart },
-  },
+  user: { cart },
 }) => {
+  // const cart = user && user.cart;
+  if (!cart) return <div>No items in the cart</div>;
+
+  const countQuantity = (arr, val) =>
+    arr.reduce((count, food) => (food.id === val ? count + 1 : count), 0);
+
   return (
     <div>
       {countQuantity(cart, foodId) > 0 ? (
@@ -40,11 +44,11 @@ const AddToCartButton = ({
 AddToCartButton.propTypes = {
   addCart: PropTypes.func.isRequired,
   deleteCartItem: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  auth: state.auth,
+  user: state.auth.user,
 });
 
 const mapDispatchToProps = { addCart, deleteCartItem };

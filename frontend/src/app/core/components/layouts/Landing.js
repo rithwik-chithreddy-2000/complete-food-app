@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 
 function Landing() {
   return (
-    <div>
-      <div>
+    <div className="landing">
+      <div className="dark-overlay landing-inner text-light">
         <div className="container-fluid m-0">
           <div className="row">
             <div className="col-md-12 text-center">
               <h1 className="mb-4 text">Food Delivery</h1>
               <p className="lead">
-                Welcome to my food app. Like Share and Subscribe. Have a great
-                time.
+                Create a developer profile/portfolio, share posts and get help
+                from other developers
               </p>
               <hr />
 

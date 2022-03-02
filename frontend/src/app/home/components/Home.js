@@ -5,8 +5,9 @@ import { getFoods, getFoodByType } from "../../foods/actions/foodActions";
 import DisplayFoods from "../../foods/components/DisplayFoods";
 import Landing from "../../core/components/layouts/Landing";
 
-const Home = ({ auth: { user }, food: { foods }, getFoods, getFoodByType }) => {
+const Home = ({ auth: { user }, food, getFoods, getFoodByType }) => {
   const [foodType, setFoodType] = useState();
+
   useEffect(() => {
     switch (foodType) {
       case "CHINESE":
@@ -19,6 +20,9 @@ const Home = ({ auth: { user }, food: { foods }, getFoods, getFoodByType }) => {
         break;
     }
   }, [getFoods, getFoodByType, foodType]);
+
+  const foods = food && food.foods;
+  if (!foods) return <div>No food in the page</div>;
 
   const onChange = (e) => {
     setFoodType(e.target.value);

@@ -66,13 +66,3 @@ export const deleteCart = () => async (dispatch) => {
     }
   }
 };
-
-export const countQuantity = (arr, val) => (async) =>
-  arr.reduce((count, food) => (food.id === val ? count + 1 : count), 0);
-
-export const totalCost = (arr) =>
-  arr.reduce((sum, food) => sum + food.foodCost, 0);
-
-export const unique = (arr) => [
-  ...new Map(arr.map((item) => [JSON.stringify(item), item])).values(),
-];

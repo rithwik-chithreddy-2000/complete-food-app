@@ -1,14 +1,17 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
-import { totalCost, unique } from "../action/cartActions";
 import CartItem from "./CartItem";
 
-export const DisplayCart = ({
-  auth: {
-    user: { cart },
-  },
-}) => {
+export const DisplayCart = ({ user }) => {
+  const cart = user && user.cart;
+  if (!cart) return <div>No items in the cart</div>;
+
+  const totalCost = (arr) => arr.reduce((sum, food) => sum + food.foodCost, 0);
+  const unique = (arr) => [
+    ...new Map(arr.map((item) => [JSON.stringify(item), item])).values(),
+  ];
+
   return (
     <div className="view-cart-container">
       <h3>Your cart content</h3>
@@ -45,11 +48,11 @@ export const DisplayCart = ({
 };
 
 DisplayCart.propTypes = {
-  auth: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  auth: state.auth,
+  user: state.auth.user,
 });
 
 const mapDispatchToProps = {};
