@@ -33,7 +33,7 @@ const DisplayFoods = ({ auth: { loading }, allFoods }) => {
   };
 
   return (
-    <main>
+    <div className="d-inline-block">
       <div>
         {allFoods.length > 0 ? (
           foods.map((food) => <DisplayFoodCard key={food.id} food={food} />)
@@ -41,7 +41,7 @@ const DisplayFoods = ({ auth: { loading }, allFoods }) => {
           <h4>No food found...</h4>
         )}
       </div>
-      <nav className="pagination">
+      <nav className="pagination justify-content-center">
         <ul className="pagination">
           <li className="page-item">
             <button className="page-link" onClick={() => prevPage()}>
@@ -74,7 +74,7 @@ const DisplayFoods = ({ auth: { loading }, allFoods }) => {
           </li>
         </ul>
       </nav>
-    </main>
+    </div>
   );
 };
 

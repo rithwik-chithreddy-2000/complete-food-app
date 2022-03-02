@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { addFood } from "../actions/foodActions";
 export const AddFood = ({ addFood }) => {
   const [formData, setFormData] = useState({
@@ -24,7 +24,7 @@ export const AddFood = ({ addFood }) => {
     addFood({ foodName, foodCost, description, foodPic, foodType }, navigate);
   };
   return (
-    <div className="row" >
+    <div className="row">
       <div className="col-3"></div>
       <div className="col">
         <h3>Add new food details</h3>
@@ -95,15 +95,15 @@ export const AddFood = ({ addFood }) => {
               <option>MEXICAN</option>
             </select>
           </div>
-        
+
           {/* <button type="submit" className="btn btn-primary">
             Save new food details
           </button> */}
           <input
-              type="submit"
-              className="col-12 btn btn-primary"
-              value="Save new food details"
-            />
+            type="submit"
+            className="col-12 btn btn-primary"
+            value="Save new food details"
+          />
         </form>
       </div>
       <div className="col-3"></div>

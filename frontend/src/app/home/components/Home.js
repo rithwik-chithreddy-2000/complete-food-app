@@ -22,14 +22,14 @@ const Home = ({ auth: { user }, food, getFoods, getFoodByType }) => {
   }, [getFoods, getFoodByType, foodType]);
 
   const foods = food && food.foods;
-  if (!foods) return <div>No food in the page</div>;
+  if (!foods) return <></>;
 
   const onChange = (e) => {
     setFoodType(e.target.value);
   };
 
   return (
-    <section className="container">
+    <section className="container-fluid px-0">
       {user !== null ? (
         <div className="text-center">
           <h1 className="large text-primary">Food Items</h1>
@@ -53,7 +53,7 @@ const Home = ({ auth: { user }, food, getFoods, getFoodByType }) => {
                 </select>
               </div>
             </div>
-            <div className="col-md-3 mt-3">
+            <div className="col-12 mt-3">
               <DisplayFoods allFoods={foods} />
             </div>
           </div>

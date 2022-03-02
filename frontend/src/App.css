@@ -1,10 +1,7 @@
-img {
-  width: 100%;
-}
-
 .landing {
   position: relative;
-  background: url("./app/assets/img/background1.jpeg") no-repeat;
+  background: url("https://i.pinimg.com/564x/bb/4a/44/bb4a440abf2ef89e25f5ff64b7034c6d.jpg")
+    no-repeat;
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -17,7 +14,7 @@ img {
 }
 
 .dark-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
   top: 0;
   left: 0;
@@ -46,6 +43,12 @@ img {
   align-items: center;
 }
 
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
 table {
   border: 2px solid forestgreen;
   width: 800px;
@@ -54,6 +57,7 @@ table {
 
 th {
   border-bottom: 1px solid black;
+  text-align: center;
 }
 
 td {

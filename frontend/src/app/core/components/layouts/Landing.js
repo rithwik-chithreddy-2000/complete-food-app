@@ -10,8 +10,8 @@ function Landing() {
             <div className="col-md-12 text-center">
               <h1 className="mb-4 text">Food Delivery</h1>
               <p className="lead">
-                Create a developer profile/portfolio, share posts and get help
-                from other developers
+                Welcome to Aadi Kitchen. Like Share and Subscribe. All payment
+                are going to be done by Aadi.
               </p>
               <hr />
 

@@ -51,18 +51,16 @@ export const deleteCartItem = (foodId) => async (dispatch) => {
 
 // Delete whole cart
 export const deleteCart = () => async (dispatch) => {
-  if (window.confirm("Are you sure? This can NOT be undone!")) {
-    try {
-      await api.delete("/cart/");
+  try {
+    await api.delete("/cart/");
 
-      dispatch({ type: CLEAR_CART });
-
-      dispatch(setAlert("Cart removed"));
-    } catch (err) {
-      dispatch({
-        type: CART_ERROR,
-        payload: { msg: err.response.statusText, status: err.response.status },
-      });
-    }
+    dispatch({ type: CLEAR_CART });
+    dispatch(setAlert("Order Successfully Placed", "success"));
+    dispatch(loadUser());
+  } catch (err) {
+    dispatch({
+      type: CART_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
   }
 };

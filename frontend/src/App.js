@@ -13,6 +13,7 @@ import Home from "./app/home/components/Home";
 import FoodRouters from "./app/foods/routings/FoodRouters";
 import CartRouters from "./app/cart/routings/CartRouters";
 import EditUserDetails from "./app/auth/components/EditUserDetails";
+import Checkout from "./app/cart/components/Checkout";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -36,8 +37,9 @@ function App() {
               path="/foods/*"
               element={<FoodRouters></FoodRouters>}
             ></Route>
-            <Route path="/edituser" element={<EditUserDetails />}></Route>
             <Route path="/cart/*" element={<CartRouters></CartRouters>}></Route>
+            <Route path="/edituser" element={<EditUserDetails />}></Route>
+            <Route path="/checkout" element={<Checkout />}></Route>
           </Routes>
           <Footer></Footer>
         </Router>

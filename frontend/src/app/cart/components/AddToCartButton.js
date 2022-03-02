@@ -18,18 +18,26 @@ const AddToCartButton = ({
   return (
     <div>
       {countQuantity(cart, foodId) > 0 ? (
-        <div>
-          <button
-            className="btn btn-primary"
-            onClick={() => deleteCartItem(foodId)}
-          >
-            -
-          </button>
-          <span className="px-2">{countQuantity(cart, foodId)}</span>
-          <button className="btn btn-primary" onClick={() => addCart(foodId)}>
-            +
-          </button>
-        </div>
+        <ul className="pagination justify-content-center">
+          <li className="page-item active">
+            <button
+              className="page-link"
+              onClick={() => deleteCartItem(foodId)}
+            >
+              -
+            </button>
+          </li>
+          <li className="page-item">
+            <span className="page-link px-2">
+              {countQuantity(cart, foodId)}
+            </span>
+          </li>
+          <li className="page-item active">
+            <button className="page-link" onClick={() => addCart(foodId)}>
+              +
+            </button>
+          </li>
+        </ul>
       ) : (
         <div>
           <button className="btn btn-primary" onClick={() => addCart(foodId)}>

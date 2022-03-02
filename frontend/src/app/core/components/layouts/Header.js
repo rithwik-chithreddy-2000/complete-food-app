@@ -33,11 +33,6 @@ const Header = ({ auth: { isAuthenticated, user }, logout }) => {
       ) : (
         <ul className="navbar-nav ms-auto">
           <li className="nav-item">
-            <a className="nav-link" href="/order-history">
-              Order history
-            </a>
-          </li>
-          <li className="nav-item">
             <Link className="nav-link" to="/cart/view-cart">
               <i className="fas fa-shopping-cart" />
               Cart

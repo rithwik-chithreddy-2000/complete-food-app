@@ -1,5 +1,5 @@
 const paginate = (foods) => {
-  const itemsPerPage = 3;
+  const itemsPerPage = 12;
   const pages = Math.ceil(foods.length / itemsPerPage);
 
   const newFoods = Array.from({ length: pages }, (_, index) => {

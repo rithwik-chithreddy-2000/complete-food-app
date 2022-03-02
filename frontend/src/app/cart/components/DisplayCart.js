@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { deleteCart } from "../action/cartActions";
 import CartItem from "./CartItem";
 
-export const DisplayCart = ({ user }) => {
+const DisplayCart = ({ user, deleteCart }) => {
   const cart = user && user.cart;
   if (!cart) return <div>No items in the cart</div>;
 
@@ -20,8 +22,8 @@ export const DisplayCart = ({ user }) => {
           <table className="table">
             <thead>
               <tr>
-                <th>Sl no</th>
-                <th>Foor name</th>
+                <th>Sr. No.</th>
+                <th>Food name</th>
                 <th>Food cost</th>
                 <th>Quantity</th>
                 <th>Total</th>
@@ -36,9 +38,13 @@ export const DisplayCart = ({ user }) => {
             </tfoot>
           </table>
 
-          <button className="btn btn-primary" click="checkout()">
+          <Link
+            className="btn btn-primary"
+            to="/checkout"
+            onClick={() => deleteCart()}
+          >
             Checkout
-          </button>
+          </Link>
         </Fragment>
       ) : (
         <h4>Nothing added to the cart...</h4>
@@ -49,12 +55,13 @@ export const DisplayCart = ({ user }) => {
 
 DisplayCart.propTypes = {
   user: PropTypes.object.isRequired,
+  deleteCart: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   user: state.auth.user,
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = { deleteCart };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DisplayCart);
